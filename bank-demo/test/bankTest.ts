@@ -72,7 +72,7 @@ catch(e) {
 console.log('--Tests for withdrawing money from a bank account--');
 // Scenario 1: successful withdraw
 try {
-    bank.withdraw(1234567892, 100);
+    bank.withdraw(1234567892, 50);
     console.log('Scenario 1 passed');
 }
 catch(e) {
@@ -82,6 +82,25 @@ catch(e) {
 // Scenario 2: unsuccessful deposit due to nonexistent account
 try {
     bank.withdraw(1, 100);
+    console.log('Scenario 2 failed');
+}
+catch(e) {
+    console.log('Scenario 2 passed');
+}
+
+/** CHECKING ACCOUNT BALANCE */
+console.log('--Tests for checking account balance--');
+// Scenario 1: successful check
+
+if (bank.getBalance(1234567892) === 50) {
+    console.log('Scenario 1 passed');
+} else {
+    console.log('Scenario 1 failed');
+}
+
+// Scenario 2: unsuccessful check due to nonexistent account
+try {
+    const x = bank.getBalance(1);
     console.log('Scenario 2 failed');
 }
 catch(e) {
