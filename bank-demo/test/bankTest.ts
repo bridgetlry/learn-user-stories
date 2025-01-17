@@ -26,7 +26,7 @@ catch(e) {
     console.log('Scenario 1 passed');
 }
 
-// scenario 2: unsuccessful account creation due to customer being below 18
+// Scenario 2: unsuccessful account creation due to customer being below 18
 
 try {
     bank.createAccount('user1', 17, 1234567899);
