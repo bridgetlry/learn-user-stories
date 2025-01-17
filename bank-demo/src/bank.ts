@@ -87,4 +87,13 @@ export class Bank implements BankType {
             throw new Error(`Account with id ${id} does not exist`);
         }
     }
+
+    getBalance(id: number): number {
+        const acct = this.findAccountById(id);
+        if (acct != undefined) {
+            return acct.balance;
+        } else {
+            throw new Error(`Account with id ${id} does not exist`);
+        }
+    }
 }

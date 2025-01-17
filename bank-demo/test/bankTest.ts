@@ -51,6 +51,13 @@ catch(e) {
 /** DEPOSITING MONEY */
 console.log('--Tests for depositing money into a bank account--');
 // Scenario 1: successful deposit
+
+if (bank.getBalance(1234567892) === 0) {
+    console.log('Scenario 1 passed');
+} else {
+    console.log('Scenario 1 failed');
+}
+
 try {
     bank.deposit(1234567892, 100);
     console.log('Scenario 1 passed');
@@ -59,9 +66,26 @@ catch(e) {
     console.log('Scenario 1 failed');
 }
 
+if (bank.getBalance(1234567892) === 100) {
+    console.log('Scenario 1 passed');
+} else {
+    console.log('Scenario 1 failed');
+}
+
+
+
+
 // Scenario 2: unsuccessful deposit due to nonexistent account
 try {
     bank.deposit(1, 100);
+    console.log('Scenario 2 failed');
+}
+catch(e) {
+    console.log('Scenario 2 passed');
+}
+
+try {
+    const x = bank.getBalance(1);
     console.log('Scenario 2 failed');
 }
 catch(e) {
