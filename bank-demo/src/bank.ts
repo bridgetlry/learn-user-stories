@@ -88,6 +88,11 @@ export class Bank implements BankType {
         }
     }
 
+    /**
+     * Returns the balance of the account with the given id
+     * @param id - id of account
+     * @returns - balance left in account
+     */
     getBalance(id: number): number {
         const acct = this.findAccountById(id);
         if (acct != undefined) {
@@ -95,5 +100,14 @@ export class Bank implements BankType {
         } else {
             throw new Error(`Account with id ${id} does not exist`);
         }
+    }
+
+    /**
+     * Withdraws the given amount from the account with the given id (if it exists)
+     * @param id - id of account
+     * @param amountToDeposit - the amount of money to be subtracted from the account
+     */
+    withdraw(id: number, amountToWithdraw: number) {
+        this.deposit(id, -amountToWithdraw);
     }
 }

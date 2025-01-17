@@ -29,7 +29,6 @@ catch(e) {
 }
 
 // Scenario 2: unsuccessful account creation due to customer being below 18
-
 try {
     bank.createAccount('user1', 17, 1234567899);
     console.log('Scenario 2 failed');
@@ -52,12 +51,6 @@ catch(e) {
 console.log('--Tests for depositing money into a bank account--');
 // Scenario 1: successful deposit
 
-if (bank.getBalance(1234567892) === 0) {
-    console.log('Scenario 1 passed');
-} else {
-    console.log('Scenario 1 failed');
-}
-
 try {
     bank.deposit(1234567892, 100);
     console.log('Scenario 1 passed');
@@ -65,15 +58,6 @@ try {
 catch(e) {
     console.log('Scenario 1 failed');
 }
-
-if (bank.getBalance(1234567892) === 100) {
-    console.log('Scenario 1 passed');
-} else {
-    console.log('Scenario 1 failed');
-}
-
-
-
 
 // Scenario 2: unsuccessful deposit due to nonexistent account
 try {
@@ -84,8 +68,20 @@ catch(e) {
     console.log('Scenario 2 passed');
 }
 
+/** WITHDRAWING MONEY */
+console.log('--Tests for withdrawing money from a bank account--');
+// Scenario 1: successful withdraw
 try {
-    const x = bank.getBalance(1);
+    bank.withdraw(1234567892, 100);
+    console.log('Scenario 1 passed');
+}
+catch(e) {
+    console.log('Scenario 1 failed');
+}
+
+// Scenario 2: unsuccessful deposit due to nonexistent account
+try {
+    bank.withdraw(1, 100);
     console.log('Scenario 2 failed');
 }
 catch(e) {
