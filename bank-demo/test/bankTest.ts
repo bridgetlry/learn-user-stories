@@ -7,6 +7,8 @@ const usernames = ['user1', 'user2'];
 
 const bank = new Bank(accounts, usernames);
 
+/** CREATING NEW BANK ACCOUNT */
+console.log('--Tests for creating a new bank account--');
 // Scenario 1: successful account created
 const acc = bank.createAccount('user1', 20, 1234567892);
 if (acc.id !== 1234567892
@@ -44,4 +46,24 @@ try {
 }
 catch(e) {
     console.log('Scenario 3 passed');
+}
+
+/** DEPOSITING MONEY */
+console.log('--Tests for depositing money into a bank account--');
+// Scenario 1: successful deposit
+try {
+    bank.deposit(1234567892, 100);
+    console.log('Scenario 1 passed');
+}
+catch(e) {
+    console.log('Scenario 1 failed');
+}
+
+// Scenario 2: unsuccessful deposit due to nonexistent account
+try {
+    bank.deposit(1, 100);
+    console.log('Scenario 2 failed');
+}
+catch(e) {
+    console.log('Scenario 2 passed');
 }
